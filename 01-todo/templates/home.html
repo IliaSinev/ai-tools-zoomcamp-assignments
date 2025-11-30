@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Home – ToDo App{% endblock %}
+
+{% block content %}
+  <h2>My Tasks</h2>
+
+  {% if tasks %}
+    <ul>
+      {% for task in tasks %}
+        <li>
+          {% if task.is_done %}
+            ✅ <s>{{ task.title }}</s>
+          {% else %}
+            ⏳ {{ task.title }}
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No tasks yet.</p>
+  {% endif %}
+{% endblock %}

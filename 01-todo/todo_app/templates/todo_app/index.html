@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>ToDo List</title>
+  </head>
+  <body>
+    <h1>ToDo List</h1>
+
+    {% if tasks %}
+      <ul>
+        {% for task in tasks %}
+          <li>
+            {% if task.is_done %}
+              ✅ <s>{{ task.title }}</s>
+            {% else %}
+              ⏳ {{ task.title }}
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No tasks yet.</p>
+    {% endif %}
+  </body>
+</html>
